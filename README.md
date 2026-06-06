@@ -97,7 +97,6 @@ densidad del sólido seco $\rho_s = 241.76$ kg/m³, humedad inicial $W_{\text{in
 ```text
 Fis-205/
 ├── README.md
-├── requirements.txt              # dependencias del proyecto
 ├── notebooks/
 │   └── simulador_horneado.ipynb  # código actualizado (Fase 1 + Fase 2)
 ├── informe/
