@@ -102,11 +102,10 @@ Fis-205/
 │   └── simulador_horneado.ipynb  # código actualizado (Fase 1 + Fase 2)
 ├── informe/
 │   └── informe_avance.pdf        # informe del proyecto
-└── figuras/                      # (opcional) gráficas exportadas
+└── figuras/                      # gráficas exportadas
 ```
 
-> 💡 La versión antigua `Proyecto horneado fase 1.ipynb` quedó superada por el notebook
-> actualizado, que ya incluye ambas fases. Puedes moverla a `notebooks/legacy/` o eliminarla.
+
 
 ---
 
