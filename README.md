@@ -13,8 +13,8 @@ Proyecto del curso **Fis-205** (Universidad Técnica Federico Santa María). Se 
 transferencia de calor en una masa de pan durante el horneado mediante un **solver 1D de la
 ecuación del calor** resuelto con el método de **Crank–Nicolson**. El objetivo es estudiar cómo
 las condiciones del horno afectan el perfil térmico interno, la formación de corteza y la
-pérdida de humedad, comparando los resultados cualitativamente con la literatura (Zürcher,
-Purlis, Zheleva).
+pérdida de humedad, comparando los resultados cualitativamente con la literatura (Zürcher y
+Purlis).
 
 El proyecto incluye, además del solver, una **animación (GIF)** del perfil térmico evolucionando
 en el tiempo y un **dashboard interactivo** (sliders con `ipywidgets`) para explorar el efecto de
@@ -27,7 +27,7 @@ los parámetros de horneado en tiempo real.
 - [Descripción del modelo](#-descripción-del-modelo)
   - [Fase 1 — Propiedades constantes](#fase-1--propiedades-constantes-geometría-plana)
   - [Fase 2 — Propiedades variables + evaporación](#fase-2--propiedades-variables--evaporación-geometría-cilíndrica)
-- [Visualizaciones interactivas](#-visualizaciones-interactivas)
+- [Visualizaciones](#-visualizaciones-de-propiedades-térmicas)
   - [Animación del perfil térmico (GIF)](#-animación-del-perfil-térmico-gif)
   - [Dashboard interactivo](#-dashboard-interactivo)
 - [Estructura del repositorio](#-estructura-del-repositorio)
@@ -84,7 +84,7 @@ $$\rho(T)\, C_p(T, W)\, \frac{\partial T}{\partial t} = \frac{1}{r}\,\frac{\part
 
 Aspectos numéricos y físicos implementados:
 
-- **Propiedades efectivas** `k_eff(T)`, `Cp_sens(T, W)` y `rho_eff(T)`, tomadas de Purlis, que
+- **Propiedades efectivas** `k_eff(T)`, `Cp_sens(T, W)` , `H_eff(Ts)`y `rho_eff(T)`, tomadas de Purlis, que
   cambian entre las ramas de **miga** y **corteza**.
 - **Heaviside suavizada** `smoothH(T)`: transición continua (≈0 bajo 100 °C, ≈1 sobre 100 °C)
   centrada en $T_f$, que evita saltos numéricos al mezclar ambas ramas.
@@ -129,7 +129,7 @@ Un **panel interactivo con `ipywidgets`** permite variar los parámetros de horn
 Parámetros expuestos:
 
 - 🌡️ Temperatura del horno $T_{\text{horno}}$
-- 💨 Coeficiente convección + radiación $H$
+- 💨 Coeficiente convección 
 - 💧 Humedad inicial $W_{\text{ini}}$
 - 📏 Espesor de la pieza $L$
 
@@ -200,17 +200,17 @@ jupyter notebook notebooks/simulador_horneado.ipynb
 ```
 
 El notebook está organizado de forma secuencial:
-
+-**Código principal:**
 1. **Parámetros y malla** — geometría, tiempo y propiedades termofísicas.
 2. **Fase 1** — construcción de la matriz tridiagonal, bucle temporal y visualización del perfil
    espacial y la evolución temporal (centro vs. superficie).
 3. **Fase 2** — definición de propiedades variables, ensamblaje del sistema cilíndrico, término de
    evaporación, bucle principal y los tres gráficos de resultados.
 4. **Animación (GIF)** — genera y exporta `figuras/animacion_horneado.gif`.
-5. **Dashboard interactivo** — sliders de `ipywidgets` para variar $T_{\text{horno}}$, $H$,
+-**Dashboard interactivo:** Sliders de `ipywidgets` para variar $T_{\text{horno}}$, $H$,
    $W_{\text{ini}}$ y $L$, y observar las curvas $T(t)$ en tiempo real.
 
-> Para que los sliders funcionen, ejecuta el notebook completo (no basta con la vista previa de
+> Para que los sliders funcionen, ejecuta el notebook dashboard_(1d) (no basta con la vista previa de
 > GitHub) y asegúrate de tener `ipywidgets` instalado y habilitado.
 
 ---
@@ -241,10 +241,12 @@ de corteza.
 
 1. Purlis, E., & Salvadori, V. O. (2009a). *Bread baking as a moving boundary problem. Part 1: Model development.* Journal of Food Engineering, 91(3), 428–433.
 2. Purlis, E., & Salvadori, V. O. (2009b). *Bread baking as a moving boundary problem. Part 2: Model validation and numerical simulation.* Journal of Food Engineering, 91(3), 434–441.
-3. Sluimer, P., & Krist-Spit, C. E. (1987). *Some aspects of heat and mass transfer in baking.* Proceedings of the 11th International Congress of Mechanical Engineering, 1, 55–64.
-4. Nicolas, V., Glouannec, P., Ploteau, J. P., Jury, V., & Le-Bail, A. (2016). *A multi-physics model for bread baking including heat and mass transfer, CO₂ production, and volume expansion.* International Journal of Heat and Mass Transfer, 98, 223–235.
-5. Zheleva, I., & Kambourova, V. (2005). *Identification of heat and mass transfer processes in bread during baking.* Thermal Science, 9(2), 73–86.
-6. Zürcher, S. (2014). *A two-state model for bread baking.* Food and Bioproducts Processing, 92(1), 16–23.
+3. Purlis, E. (2011). *Bread baking: Technological considerations based on process modelling and simulation.* Journal of Food Engineering, 103(1), 92-102.
+4. Sluimer, P., & Krist-Spit, C. E. (1987). *Some aspects of heat and mass transfer in baking.* Proceedings of the 11th International Congress of Mechanical Engineering, 1, 55–64.
+5. Nicolas, V., Glouannec, P., Ploteau, J. P., Jury, V., & Le-Bail, A. (2016). *A multi-physics model for bread baking including heat and mass transfer, CO₂ production, and volume expansion.* International Journal of Heat and Mass Transfer, 98, 223–235.
+6. Zheleva, I., & Kambourova, V. (2005). *Identification of heat and mass transfer processes in bread during baking.* Thermal Science, 9(2), 73–86.
+7. Zürcher, S. (2014). *A two-state model for bread baking.* Food and Bioproducts Processing, 92(1), 16–23.
+8. Hamdami, N., Monteau, J.-Y., and Le Bail, A. (2004).*Thermophysical properties evolution of French partly baked bread during freezing.* Food Research International, 37(7):703--713.
 
 ---
 
