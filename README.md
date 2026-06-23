@@ -149,10 +149,10 @@ Fis-205/
 ├── README.md
 ├── requirements.txt
 ├── notebooks/
-│   └── simulador_horneado.ipynb      # código completo (Fase 1 + Fase 2 + GIF)
+│   └── Proyecto horneado_simulador.ipynb      # código completo (Fase 1 + Fase 2 + GIF)
 |   └── Dashboard_horneado(1d).ipynb  # código completo (Panel interactivo)
 ├── informe/
-│   └── informe_avance.pdf            # informe del proyecto
+│   └── informe_proyectofinal.pdf            # informe del proyecto
 └── figuras/
     ├── animacion_horneado.gif        # animación del perfil térmico
     ├── perfil_temperatura.png        # gráficas estáticas exportadas
