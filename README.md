@@ -149,7 +149,8 @@ Fis-205/
 ├── README.md
 ├── requirements.txt
 ├── notebooks/
-│   └── simulador_horneado.ipynb      # código completo (Fase 1 + Fase 2 + GIF + dashboard)
+│   └── simulador_horneado.ipynb      # código completo (Fase 1 + Fase 2 + GIF)
+|   └── Dashboard_horneado(1d).ipynb  # código completo (Panel interactivo)
 ├── informe/
 │   └── informe_avance.pdf            # informe del proyecto
 └── figuras/
@@ -210,7 +211,7 @@ El notebook está organizado de forma secuencial:
 -**Dashboard interactivo:** Sliders de `ipywidgets` para variar $T_{\text{horno}}$, $H$,
    $W_{\text{ini}}$ y $L$, y observar las curvas $T(t)$ en tiempo real.
 
-> Para que los sliders funcionen, ejecuta el notebook dashboard_(1d) (no basta con la vista previa de
+> Para que los sliders funcionen, ejecuta el notebook dashboard_horneado(1d) (no basta con la vista previa de
 > GitHub) y asegúrate de tener `ipywidgets` instalado y habilitado.
 
 ---
